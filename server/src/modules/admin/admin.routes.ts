@@ -14,10 +14,15 @@ adminRouter.get('/dashboard', async (_, res) => {
 });
 
 adminRouter.get('/products', (_, res) => res.json({ data: products, meta: { page: 1, total: products.length, totalPages: 1 } }));
-adminRouter.get('/orders', async (_, res) => {
+adminRouter.get('/orders', async (req, res) => {
   if (mongoose.connection.readyState !== 1) return res.status(503).json({ message: 'MongoDB chưa kết nối' });
-  const data = await Order.find().sort({ createdAt: -1 }).limit(100).lean();
-  return res.json({ data, meta: { page: 1, total: data.length, totalPages: 1 } });
+  const page = Math.max(1, Number.parseInt(String(req.query.page || '1'), 10) || 1);
+  const limit = Math.min(50, Math.max(1, Number.parseInt(String(req.query.limit || '10'), 10) || 10));
+  const [data, total] = await Promise.all([
+    Order.find().sort({ createdAt: -1 }).skip((page - 1) * limit).limit(limit).lean(),
+    Order.countDocuments(),
+  ]);
+  return res.json({ data, meta: { page, limit, total, totalPages: Math.max(1, Math.ceil(total / limit)) } });
 });
 
 adminRouter.get('/orders/:id', async (req, res) => {
