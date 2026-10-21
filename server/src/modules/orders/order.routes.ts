@@ -32,7 +32,7 @@ orderRouter.post('/', rateLimit({ windowMs: 60_000, max: 10 }), upload.single('p
     const proof = await uploadPaymentProof(req.file);
     const order = await Order.create({ orderNumber, idempotencyKey, customerName, phone, email, address, note, subtotal, total: subtotal, paymentProofUrl: proof.url, paymentProofPublicId: proof.publicId, emailDelivery: { status: process.env.BREVO_API_KEY ? 'PENDING' : 'NOT_CONFIGURED', attempts: 0 }, items: lines.map((item) => ({ productId: item._id, name: item.name, price: item.price, quantity: item.quantity, image: item.image })), statusHistory: [{ status: 'PENDING', at: new Date(), by: 'customer' }] });
     try {
-      const mail = await sendNewOrderEmail({ orderNumber, customerName, phone, address, total: subtotal, items: lines, paymentProofUrl: proof.url });
+      const mail = await sendNewOrderEmail({ orderNumber, customerName, phone, email, address, note, total: subtotal, items: lines, paymentProofUrl: proof.url });
       await Order.updateOne({ _id: order._id }, { $set: { 'emailDelivery.status': mail.skipped ? 'NOT_CONFIGURED' : 'SENT', 'emailDelivery.sentAt': mail.sent ? new Date() : undefined }, $inc: { 'emailDelivery.attempts': 1 } });
     } catch (error) {
       await Order.updateOne({ _id: order._id }, { $set: { 'emailDelivery.status': 'FAILED', 'emailDelivery.lastError': error instanceof Error ? error.message : 'Unknown email error' }, $inc: { 'emailDelivery.attempts': 1 } });
