@@ -1,0 +1,1 @@
+export function SectionIntro({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) { return <div className="page-intro reveal"><p className="eyebrow">{eyebrow}</p><h1 dangerouslySetInnerHTML={{ __html: title }} />{copy && <p className="page-lede">{copy}</p>}</div>; }

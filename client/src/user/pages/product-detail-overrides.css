@@ -1,0 +1,4 @@
+.detail-gallery { background: var(--cream); padding: 24px; border-radius: 28px; overflow: hidden; }
+.detail-gallery > img { object-fit: contain; transform: scale(.88); transform-origin: center; image-rendering: auto; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+.detail-gallery:hover > img { transform: scale(.93); }
+@media (max-width: 540px) { .detail-gallery { padding: 16px; } .detail-gallery > img { transform: scale(.9); } }

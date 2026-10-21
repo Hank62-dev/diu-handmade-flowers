@@ -1,0 +1,19 @@
+.marquee > div {
+  display: inline-block;
+  min-width: max-content;
+  padding-right: 6vw;
+  letter-spacing: .34em;
+  animation: diu-marquee 18s linear infinite !important;
+  animation-play-state: running !important;
+}
+
+.marquee > div::after {
+  content: 'HANDMADE  ✦  SOFT DETAILS  ✦  LITTLE STORIES  ✦  GỬI MỘT CHÚT DỊU DÀNG  ✦  HANDMADE  ✦  ';
+  display: inline-block;
+  padding-left: 6vw;
+}
+
+@keyframes diu-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}

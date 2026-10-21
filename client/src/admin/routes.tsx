@@ -1,0 +1,2 @@
+import { AdminLayout } from './layouts/AdminLayout'; import { DashboardPage } from './pages/DashboardPage'; import { ProductsPage } from './pages/ProductsPage'; import { OrdersPage } from './pages/OrdersPage'; import { OrderDetailPage } from './pages/OrderDetailPage';
+export const adminRoutes=[{path:'/admin',element:<AdminLayout/>,children:[{index:true,element:<DashboardPage/>},{path:'products',element:<ProductsPage/>},{path:'orders',element:<OrdersPage/>},{path:'orders/:id',element:<OrderDetailPage/>}]}];

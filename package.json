@@ -1,0 +1,13 @@
+{
+  "name": "diu-handmade-flowers",
+  "private": true,
+  "packageManager": "pnpm@11.22.0",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter diu-server dev\" \"pnpm --filter diu-client dev\"",
+    "build": "pnpm --filter diu-client build",
+    "lint": "pnpm --filter diu-client lint && pnpm --filter diu-server lint",
+    "test": "pnpm --filter diu-server test"
+  },
+  "devDependencies": { "concurrently": "^9.1.2" }
+}

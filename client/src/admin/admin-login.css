@@ -1,0 +1,8 @@
+.password-field{display:flex;align-items:center;gap:9px;margin-top:6px;border:1px solid var(--line);background:var(--cream);border-radius:9px;padding:0 11px;color:var(--rose)}
+.password-field input{flex:1!important;margin:0!important;border:0!important;background:transparent!important;padding:12px 0!important;outline:0!important}
+.password-field button{display:grid;place-items:center;border:0;background:transparent;color:var(--olive);padding:4px}
+.password-field input::-ms-reveal,.password-field input::-ms-clear{display:none}
+.password-field input::-webkit-credentials-auto-fill-button{visibility:hidden;display:none!important;pointer-events:none}
+.admin-exit{width:100%;border:0;background:transparent;cursor:pointer;text-align:left;font:inherit;transition:background-color .25s ease,color .25s ease,transform .25s ease}
+.admin-exit:hover{background:rgba(255,255,255,.1);color:#fff;transform:translateX(3px)}
+.admin-empty-state{background:var(--cream);border:1px dashed rgba(179,42,91,.28);border-radius:16px;padding:70px 25px;text-align:center;color:var(--olive);margin:30px 0}.admin-empty-state svg{color:var(--rose);margin-bottom:12px}.admin-empty-state h2{font-size:30px;color:var(--olive-deep);margin:0 0 8px}.admin-empty-state p{color:#827669;margin:0 auto 22px;max-width:390px}.admin-preview-notice{display:flex;align-items:center;gap:10px;background:#fff7dc;color:#77602c;border-left:3px solid var(--gold);padding:13px 16px;font-size:12px;margin:22px 0}.order-status{font-style:normal!important}.order-status.pending{color:#9a6a1e!important}.order-status.processing{color:#b32a5b!important}.order-status.completed{color:#477043!important}.order-status.rejected{color:#973b3b!important}
