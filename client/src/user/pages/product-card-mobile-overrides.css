@@ -1,0 +1,52 @@
+@media (max-width: 540px) {
+  .product-card {
+    border-radius: 14px;
+  }
+
+  .product-image {
+    aspect-ratio: 1 / 1.08;
+  }
+
+  .product-image span {
+    top: 8px;
+    left: 8px;
+    padding: 3px 7px;
+    font-size: 9px;
+  }
+
+  .product-info {
+    padding: 11px 10px 12px;
+  }
+
+  .product-category {
+    font-size: 8px;
+    margin-bottom: 3px;
+  }
+
+  .product-info h2,
+  .product-info h3 {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+
+  .product-desc {
+    min-height: 0;
+    margin: 0 0 10px;
+    font-size: 10px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .product-bottom strong {
+    font-size: 13px;
+  }
+
+  .product-bottom button {
+    width: 31px;
+    height: 31px;
+  }
+}
