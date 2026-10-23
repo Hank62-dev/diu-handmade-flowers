@@ -3,7 +3,7 @@ import { Instagram, MessageCircle, Phone, X } from 'lucide-react';
 
 export function FloatingContact() {
   const [open, setOpen] = useState(false);
-  const facebookUrl = import.meta.env.VITE_FACEBOOK_URL as string | undefined;
+  const facebookUrl = 'https://www.facebook.com/share/1J2KqY1t5u/?mibextid=wwXIfr';
 
   useEffect(() => {
     if (!open) return undefined;
